@@ -1,0 +1,1 @@
+# Demo\n\n`mcpify wrap rg --name search` emits a ready MCP server.\n
