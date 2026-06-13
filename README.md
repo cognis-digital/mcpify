@@ -64,5 +64,11 @@ MCP-native by definition; also exposes a plain `run` for shell/JSON pipelines, a
 
 > ### ⭐ Star it if it saved you a server.
 
+## Interoperability
+
+`{}` composes with the 300+ tool Cognis suite — JSON in/out and a shared
+OpenAI-compatible `/v1` backbone. See **[INTEROP.md](INTEROP.md)** for the
+suite map, composition patterns, and reference stacks.
+
 ## License
 COCL v1.0 — see [LICENSE](LICENSE).
