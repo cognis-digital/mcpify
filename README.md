@@ -20,6 +20,12 @@ mcpify wrap "rg" --name search > server.py    # generate a server
 mcpify serve "kubectl" --name kube             # or serve immediately
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+mcpify takes any program you already have on your computer — like a search tool, a database command, or a build script — and wraps it so that AI assistants like Claude or Cursor can run it on your behalf. You point it at a command, and it generates a small server file that makes that command available to AI agents without any custom coding. It is for developers who want their existing tools to work inside AI-powered workflows without rewriting anything.
+<!-- cognis:layman:end -->
+
 ## Architecture
 
 ```mermaid
@@ -35,6 +41,42 @@ MCP-native by definition; also exposes a plain `run` for shell/JSON pipelines, a
 [uncensored-fleet](https://github.com/cognis-digital/uncensored-fleet) for fully-local agents.
 
 <a name="verification"></a>
+<!-- cognis:install:start -->
+## Install
+
+`mcpify` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/mcpify/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/mcpify/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/mcpify.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/mcpify.git"  # uv
+pip install "git+https://github.com/cognis-digital/mcpify.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/mcpify.git
+cd mcpify && pip install .
+```
+
+Then run:
+```sh
+mcpify --help
+```
+<!-- cognis:install:end -->
+
 ## Verification
 
 [![tests](https://img.shields.io/badge/tests-2%20passing-2ea44f.svg)](AUDIT.md)
