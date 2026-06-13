@@ -20,6 +20,31 @@ mcpify wrap "rg" --name search > server.py    # generate a server
 mcpify serve "kubectl" --name kube             # or serve immediately
 ```
 
+## Usage — step by step
+
+1. Install the CLI (console-script: `mcpify`):
+   ```bash
+   pipx install "git+https://github.com/cognis-digital/mcpify.git"
+   mcpify --version
+   ```
+2. Test-run the command you want to expose, to confirm it behaves:
+   ```bash
+   mcpify run "ripgrep" "TODO ./src"
+   ```
+3. Serve that command as an MCP server right now (tool name defaults to `run`):
+   ```bash
+   mcpify serve "ripgrep" --name search
+   ```
+4. Or emit a standalone `server.py` you can commit and run later:
+   ```bash
+   mcpify wrap "ripgrep" --name search > server.py
+   python server.py
+   ```
+5. In CI, generate the server file as a build artifact for your agent stack:
+   ```bash
+   mcpify wrap "mytool --flag" --name mytool > dist/server.py
+   ```
+
 ## Architecture
 
 ```mermaid
