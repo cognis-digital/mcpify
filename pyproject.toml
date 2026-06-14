@@ -23,3 +23,6 @@ Repository = "https://github.com/cognis-digital/mcpify"
 mcpify = "mcpify.cli:main"
 [tool.hatch.build.targets.wheel]
 packages = ["mcpify"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
