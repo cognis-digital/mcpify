@@ -1,0 +1,9 @@
+{
+  "name": "pg-readonly",
+  "tools": [
+    {"name": "query",    "command": "psql --no-password --tuples-only --no-align -c", "description": "run one SQL statement; args is the SELECT text. Point psql at a SELECT-only role.", "timeout": 60},
+    {"name": "tables",   "command": "psql --no-password -c \\dt",                     "description": "list tables in the current database", "timeout": 30},
+    {"name": "describe", "command": "psql --no-password -c",                          "description": "describe an object; args is a backslash-d command such as the d-plus form on a table", "timeout": 30},
+    {"name": "explain",  "command": "psql --no-password -c",                          "description": "EXPLAIN a query; args is the EXPLAIN statement text", "timeout": 60}
+  ]
+}

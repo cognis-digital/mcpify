@@ -22,3 +22,11 @@ jobs:
           else
             echo "no tests present — skipping"
           fi
+      - name: Validate demo manifests
+        shell: bash
+        run: |
+          for m in demos/*/manifest.json; do
+            [ -f "$m" ] || continue
+            echo "checking $m"
+            python -W error::SyntaxWarning -c "import ast,sys; from mcpify.core import load_manifest, manifest_server_code; ast.parse(manifest_server_code(load_manifest(sys.argv[1])))" "$m"
+          done

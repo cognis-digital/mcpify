@@ -45,6 +45,53 @@ mcpify serve "kubectl" --name kube             # or serve immediately
    mcpify wrap "mytool --flag" --name mytool > dist/server.py
    ```
 
+## Bundle many tools — a manifest
+
+Expose a whole toolbelt as **one** MCP server with a JSON manifest:
+
+```jsonc
+// devbox.json
+{
+  "name": "devbox",
+  "tools": [
+    {"name": "search", "command": "rg --line-number", "description": "code search", "timeout": 30},
+    {"name": "build",  "command": "make"},
+    {"name": "test",   "command": "pytest -q"}
+  ]
+}
+```
+
+```bash
+mcpify manifest devbox.json > devbox_server.py   # one server, many @app.tool()s
+mcpify spec devbox.json                           # MCP tools/list JSON — no server boot
+```
+
+`mcpify spec` emits the MCP `tools/list` schema (server name, per-tool `inputSchema`)
+for either a single command or a manifest, so agents and CI can **discover** the tool
+surface without starting a process. Tool names are normalised to valid identifiers and
+generated code is quote-safe.
+
+## Demos
+
+Ten copy-pasteable, real-use-case manifests live in [`demos/`](demos/), each with a
+`SCENARIO.md` (where the data comes from, the exact run command, what to expect):
+
+| # | Demo | What it wraps |
+|---|------|---------------|
+| 01 | [devbox toolbelt](demos/01-devbox-toolbelt) | rg / fd / eza / ruff / mypy as one server |
+| 02 | [kubectl read-only](demos/02-kubectl-readonly) | pod/log/event triage, no mutate verbs |
+| 03 | [code search](demos/03-ripgrep-codesearch) | ripgrep + a credential heuristic |
+| 04 | [git inspect](demos/04-git-inspect) | history/blame/diff, read-only |
+| 05 | [data toolkit](demos/05-python-data-toolkit) | jq / csvkit on local JSON & CSV |
+| 06 | [docker observability](demos/06-docker-ops) | ps/logs/inspect/stats, no lifecycle |
+| 07 | [terraform review](demos/07-terraform-plan) | plan/validate/fmt, never apply |
+| 08 | [postgres read-only](demos/08-db-query-readonly) | SELECT-only query server |
+| 09 | [passive recon](demos/09-osint-recon) | whois/dns/cert/headers (authorized use) |
+| 10 | [CI spec export](demos/10-ci-spec-export) | publish the MCP spec as an artifact |
+
+Every demo is validated in CI; many "read-only by construction" servers simply omit the
+mutating subcommands from the manifest.
+
 ## Architecture
 
 ```mermaid

@@ -1,0 +1,10 @@
+{
+  "name": "osint-passive",
+  "tools": [
+    {"name": "whois",     "command": "whois",          "description": "domain/IP registration lookup (passive)", "timeout": 30},
+    {"name": "dns",       "command": "dig +noall +answer", "description": "DNS records, e.g. args='example.com MX'", "timeout": 30},
+    {"name": "rdns",      "command": "dig +short -x",  "description": "reverse DNS for an IP (args=<ip>)", "timeout": 30},
+    {"name": "cert",      "command": "python -c \"import ssl,socket,sys,json;h=sys.argv[1];c=ssl.create_default_context();s=c.wrap_socket(socket.socket(),server_hostname=h);s.settimeout(10);s.connect((h,443));print(json.dumps(s.getpeercert()))\"", "description": "fetch the TLS cert for a host (args=<hostname>)", "timeout": 30},
+    {"name": "headers",   "command": "curl -sS -I",    "description": "HTTP response headers only (args=<url>)", "timeout": 30}
+  ]
+}

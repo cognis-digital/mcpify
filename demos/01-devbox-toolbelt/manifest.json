@@ -1,0 +1,10 @@
+{
+  "name": "devbox",
+  "tools": [
+    {"name": "search",   "command": "rg --line-number --no-heading", "description": "ripgrep code search across the repo", "timeout": 30},
+    {"name": "find",     "command": "fd --type f",                    "description": "fast file finder (fd)", "timeout": 30},
+    {"name": "tree",     "command": "eza --tree --level=2",           "description": "directory tree (eza)", "timeout": 15},
+    {"name": "fmt",      "command": "ruff format --check",            "description": "check Python formatting without writing", "timeout": 60},
+    {"name": "typecheck","command": "mypy",                           "description": "static type check", "timeout": 120}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "release-tools",
+  "tools": [
+    {"name": "build",   "command": "make build",            "description": "build the project", "timeout": 600},
+    {"name": "test",    "command": "pytest -q",             "description": "run the test suite", "timeout": 600},
+    {"name": "lint",    "command": "ruff check",            "description": "lint the codebase", "timeout": 120},
+    {"name": "sbom",    "command": "syft packages dir:.",   "description": "generate a software bill of materials", "timeout": 120}
+  ]
+}

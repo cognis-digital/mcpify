@@ -1,0 +1,10 @@
+{
+  "name": "terraform-readonly",
+  "tools": [
+    {"name": "plan",       "command": "terraform plan -no-color -input=false", "description": "show a dry-run plan (never applies)", "timeout": 300},
+    {"name": "validate",   "command": "terraform validate -no-color",          "description": "validate configuration", "timeout": 60},
+    {"name": "fmt_check",   "command": "terraform fmt -check -recursive",       "description": "check HCL formatting without writing", "timeout": 60},
+    {"name": "show",       "command": "terraform show -no-color",              "description": "render current state or a saved plan file", "timeout": 60},
+    {"name": "state_list", "command": "terraform state list",                  "description": "list resources tracked in state", "timeout": 60}
+  ]
+}

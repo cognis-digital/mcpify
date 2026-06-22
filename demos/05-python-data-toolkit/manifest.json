@@ -1,0 +1,10 @@
+{
+  "name": "datakit",
+  "tools": [
+    {"name": "jq",       "command": "jq",                      "description": "filter/transform JSON (args = filter + file)", "timeout": 30},
+    {"name": "csvstat",  "command": "csvstat",                 "description": "column statistics for a CSV (csvkit)", "timeout": 60},
+    {"name": "csvgrep",  "command": "csvgrep",                 "description": "filter CSV rows (csvkit)", "timeout": 60},
+    {"name": "head",     "command": "python -c \"import sys;print(open(sys.argv[1]).read(2000))\"", "description": "preview first 2KB of a file", "timeout": 15},
+    {"name": "validate", "command": "python -m json.tool",     "description": "validate / pretty-print a JSON file", "timeout": 15}
+  ]
+}

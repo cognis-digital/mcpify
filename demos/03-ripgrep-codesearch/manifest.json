@@ -1,0 +1,9 @@
+{
+  "name": "codesearch",
+  "tools": [
+    {"name": "grep",        "command": "rg --line-number --no-heading --color=never", "description": "search file contents", "timeout": 30},
+    {"name": "files",       "command": "rg --files",                                  "description": "list files rg would search (respects .gitignore)", "timeout": 30},
+    {"name": "count",       "command": "rg --count-matches",                          "description": "count matches per file", "timeout": 30},
+    {"name": "secrets_scan","command": "rg --line-number -e (?i)(api[_-]?key|secret|password|token)\\s*[:=]", "description": "heuristic scan for hardcoded credentials (review hits manually)", "timeout": 60}
+  ]
+}

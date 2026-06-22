@@ -1,0 +1,10 @@
+{
+  "name": "docker-readonly",
+  "tools": [
+    {"name": "ps",       "command": "docker ps --format json",        "description": "running containers (JSON lines)", "timeout": 30},
+    {"name": "images",   "command": "docker images --format json",    "description": "local images", "timeout": 30},
+    {"name": "logs",     "command": "docker logs --tail=200",         "description": "tail a container's logs (args=<name|id>)", "timeout": 30},
+    {"name": "inspect",  "command": "docker inspect",                 "description": "inspect a container/image (args=<name|id>)", "timeout": 30},
+    {"name": "stats",    "command": "docker stats --no-stream --format json", "description": "one-shot resource usage", "timeout": 30}
+  ]
+}

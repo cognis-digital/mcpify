@@ -1,0 +1,10 @@
+{
+  "name": "git-inspect",
+  "tools": [
+    {"name": "status",   "command": "git status --short --branch", "description": "working-tree status", "timeout": 15},
+    {"name": "log",      "command": "git log --oneline -n 30",     "description": "recent commits", "timeout": 15},
+    {"name": "diff",     "command": "git diff --stat",             "description": "unstaged change summary", "timeout": 15},
+    {"name": "blame",    "command": "git blame -L 1,40",           "description": "blame first 40 lines of a file (args=<path>)", "timeout": 30},
+    {"name": "show",     "command": "git show --stat",             "description": "inspect a commit (args=<sha>)", "timeout": 15}
+  ]
+}

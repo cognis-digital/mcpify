@@ -1,0 +1,10 @@
+{
+  "name": "k8s-readonly",
+  "tools": [
+    {"name": "get_pods",     "command": "kubectl get pods -o wide",              "description": "list pods in the current namespace", "timeout": 30},
+    {"name": "describe",     "command": "kubectl describe",                      "description": "describe a resource, e.g. args='pod my-pod'", "timeout": 30},
+    {"name": "logs",         "command": "kubectl logs --tail=200",               "description": "tail logs for a pod", "timeout": 30},
+    {"name": "top_pods",     "command": "kubectl top pods",                      "description": "live CPU/memory per pod (metrics-server)", "timeout": 30},
+    {"name": "get_events",   "command": "kubectl get events --sort-by=.lastTimestamp", "description": "recent cluster events", "timeout": 30}
+  ]
+}

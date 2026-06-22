@@ -1,0 +1,12 @@
+{
+  "service": "checkout-api",
+  "window": "2026-06-21T00:00:00Z/2026-06-22T00:00:00Z",
+  "requests": 184302,
+  "errors": 412,
+  "p99_ms": 731,
+  "by_route": [
+    {"route": "/cart", "requests": 91044, "p99_ms": 240},
+    {"route": "/pay",  "requests": 60110, "p99_ms": 980},
+    {"route": "/order","requests": 33148, "p99_ms": 612}
+  ]
+}
