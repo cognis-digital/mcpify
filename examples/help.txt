@@ -1,0 +1,18 @@
+$ mcpify-emit --help
+
+usage: mcpify [-h] [--version] {wrap,serve,run,manifest,spec} ...
+
+Turn any CLI tool into an MCP server.
+
+positional arguments:
+  {wrap,serve,run,manifest,spec}
+    wrap                emit a server.py for a command
+    serve               serve a command as MCP now
+    run                 test-run the command
+    manifest            emit a multi-tool server.py from a JSON manifest
+    spec                emit the MCP tools/list spec (JSON) without booting a
+                        server
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

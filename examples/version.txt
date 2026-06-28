@@ -1,0 +1,3 @@
+$ mcpify-emit --version
+
+mcpify 0.1.1

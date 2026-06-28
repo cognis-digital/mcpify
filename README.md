@@ -20,6 +20,66 @@ mcpify wrap "rg" --name search > server.py    # generate a server
 mcpify serve "kubectl" --name kube             # or serve immediately
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ mcpify-emit --version
+mcpify 0.1.1
+```
+
+```console
+$ mcpify-emit --help
+usage: mcpify [-h] [--version] {wrap,serve,run,manifest,spec} ...
+
+Turn any CLI tool into an MCP server.
+
+positional arguments:
+  {wrap,serve,run,manifest,spec}
+    wrap                emit a server.py for a command
+    serve               serve a command as MCP now
+    run                 test-run the command
+    manifest            emit a multi-tool server.py from a JSON manifest
+    spec                emit the MCP tools/list spec (JSON) without booting a
+                        server
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+```
+
+> Blocks above are real `mcpify` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"Findings": [
+    {
+        "id": "123456",
+        "title": "Suspicious Network Traffic",
+        "description": "Potential malicious activity detected on port 8080.",
+        "category": "Network",
+        "severity": "Medium",
+        "created_at": "2023-02-15T14:30:00Z"
+    },
+    {
+        "id": "789012",
+        "title": "Unusual File Access",
+        "description": "User 'johndoe' accessed a file with unusual permissions.",
+        "category": "File System",
+        "severity": "High",
+        "created_at": "2023-02-16T10:45:00Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. Install the CLI (console-script: `mcpify`):
